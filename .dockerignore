@@ -1,0 +1,15 @@
+.git
+.vscode
+env
+.env
+.dockerignore
+.gitattributes
+.gitignore
+.gitlab-ci.yml
+.mailmap
+Dockerfile
+README.md
+docker-compose.yml
+
+dist
+node_modules
