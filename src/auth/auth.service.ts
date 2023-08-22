@@ -10,6 +10,7 @@ import { RegisterUserInput } from "./dto/register.input";
 import * as bcrypt from "bcrypt";
 import { User } from "@prisma/client";
 import { TJwtPayload, TokenType } from "./types";
+import { ChangePasswordInput } from "./dto/change-password.input";
 
 @Injectable()
 export class AuthService {
@@ -68,5 +69,34 @@ export class AuthService {
     const token = this.jwtService.sign(payload);
 
     return { access_token: token };
+  }
+
+  async changePassword(
+    usedId: string,
+    changePasswordInput: ChangePasswordInput
+  ) {
+    const { oldPassword, newPassword } = changePasswordInput;
+    const user = await this.prisma.user.findUnique({
+      where: { id: usedId },
+    });
+
+    if (!user) {
+      throw new NotFoundException("No user found with this email");
+    }
+
+    const isPasswordValid = await bcrypt.compare(oldPassword, user.password);
+
+    if (!isPasswordValid) {
+      throw new UnauthorizedException("Invalid password");
+    }
+
+    const saltRounds = 10;
+    const hashedPassword = await bcrypt.hash(newPassword, saltRounds);
+    const updatedUser = await this.prisma.user.update({
+      where: { id: usedId },
+      data: { password: hashedPassword },
+    });
+
+    return updatedUser;
   }
 }
