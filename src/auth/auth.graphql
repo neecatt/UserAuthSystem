@@ -1,0 +1,14 @@
+input RegisterUserInput {
+  email: String!
+  password: String!
+}
+
+input LoginUserInput {
+  email: String!
+  password: String!
+}
+
+type mutation {
+  registerUser(input: RegisterUserInput!): User!
+  loginUser(input: LoginUserInput!): User!
+}
