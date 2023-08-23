@@ -11,9 +11,14 @@ datasource db {
 }
 
 model User {
-  id        String   @id @default(auto()) @map("_id") @db.ObjectId
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  email     String   @unique
-  password  String
+  id                String   @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  email             String   @unique
+  password          String
+  twoFactorSecret   String?
+  twoFactorEnabled  Boolean  @default(false)
+  twoFactorVerified Boolean  @default(false)
+
+  @@map(name: "users")
 }
