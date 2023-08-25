@@ -16,4 +16,6 @@ input ChangePasswordInput {
 type mutation {
   registerUser(input: RegisterUserInput!): User!
   loginUser(input: LoginUserInput!): User!
+  enableTwoFactorAuthentication(user: User!, input: TwoFactorInput!): User!
+  generateTwoFactorQrCode(user: User!): String!
 }

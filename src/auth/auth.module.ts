@@ -7,6 +7,7 @@ import { PrismaService } from "src/prisma.service";
 import { AuthResolver } from "./auth.resolver";
 import * as dotenv from "dotenv";
 import { GqlAuthGuard } from "./guards/gql-auth.guard";
+import { UsersService } from "src/users/users.service";
 dotenv.config();
 
 @Module({
@@ -14,6 +15,7 @@ dotenv.config();
     JwtModule.register({
       privateKey: process.env.JWT_ACCESS_SECRET,
       secret: process.env.JWT_ACCESS_SECRET,
+      signOptions: { expiresIn: process.env.JWT_ACCESS_EXPIRATION_TIME },
     }),
     PassportModule,
   ],
@@ -23,6 +25,7 @@ dotenv.config();
     PrismaService,
     AuthResolver,
     GqlAuthGuard,
+    UsersService,
   ],
 })
 export class AuthModule {}
