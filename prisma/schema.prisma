@@ -16,7 +16,7 @@ model User {
   updatedAt         DateTime @updatedAt
   email             String   @unique
   password          String
-  twoFactorSecret   String?
+  twoFactorSecret   String   @default("default") @map("two_factor_secret")
   twoFactorEnabled  Boolean  @default(false)
   twoFactorVerified Boolean  @default(false)
 
