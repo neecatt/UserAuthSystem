@@ -40,7 +40,7 @@ export class UsersService {
     const prisma_user = await this.prisma.user.findUnique({
       where: { id: user.id },
     });
-    if (!prisma_user || !prisma_user.twoFactorSecret) {
+    if (!prisma_user?.twoFactorSecret) {
       throw new BadRequestException("User or two-factor secret is missing");
     }
 
