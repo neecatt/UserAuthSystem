@@ -57,10 +57,11 @@ export class AuthResolver {
     @CurrentUser() user: User,
     @Args("input") twoFactorInput: TwoFactorInput
   ) {
-    const isCodeValid = this.usersService.isTwoFactorAuthenticationCodeValid(
-      twoFactorInput.authCode,
-      user
-    );
+    const isCodeValid =
+      await this.usersService.isTwoFactorAuthenticationCodeValid(
+        twoFactorInput.authCode,
+        user
+      );
 
     if (!isCodeValid) {
       throw new UnauthorizedException("Invalid two-factor authentication code");
@@ -74,10 +75,11 @@ export class AuthResolver {
     @CurrentUser() user: User,
     @Args("input") twoFactorInput: TwoFactorInput
   ) {
-    const isCodeValid = this.usersService.isTwoFactorAuthenticationCodeValid(
-      twoFactorInput.authCode,
-      user
-    );
+    const isCodeValid =
+      await this.usersService.isTwoFactorAuthenticationCodeValid(
+        twoFactorInput.authCode,
+        user
+      );
     if (!isCodeValid) {
       throw new UnauthorizedException("Invalid two-factor authentication code");
     }
