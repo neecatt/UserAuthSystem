@@ -3,7 +3,6 @@ import { UserType } from "./models/user.model";
 import { UsersService } from "./users.service";
 import { CreateUserInput } from "./dto/create-user.input";
 import { User } from "@prisma/client";
-import { CurrentUser } from "src/auth/decorators/get-user-id.decorator";
 
 @Resolver()
 export class UsersResolver {
