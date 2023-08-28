@@ -2,6 +2,7 @@
 /dist
 /node_modules
 schema.gql
+.env
 
 # Logs
 logs
@@ -34,4 +35,9 @@ lerna-debug.log*
 !.vscode/launch.json
 !.vscode/extensions.json
 
+<<<<<<< Updated upstream
 package-lock.json
+=======
+package-lock.json
+
+>>>>>>> Stashed changes

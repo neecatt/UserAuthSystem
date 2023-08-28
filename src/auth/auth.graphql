@@ -1,0 +1,21 @@
+input RegisterUserInput {
+  email: String!
+  password: String!
+}
+
+input LoginUserInput {
+  email: String!
+  password: String!
+}
+
+input ChangePasswordInput {
+  oldPassword: String!
+  newPassword: String!
+}
+
+type mutation {
+  registerUser(input: RegisterUserInput!): User!
+  loginUser(input: LoginUserInput!): User!
+  enableTwoFactorAuthentication(user: User!, input: TwoFactorInput!): User!
+  generateTwoFactorQrCode(user: User!): String!
+}
