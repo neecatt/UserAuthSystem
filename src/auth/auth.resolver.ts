@@ -1,5 +1,5 @@
 import { Args, Mutation, Resolver } from "@nestjs/graphql";
-import { UserType } from "src/users/models/user.model";
+import { UserType } from "../users/models/user.model";
 import { RegisterUserInput } from "./dto/register.input";
 import { AuthService } from "./auth.service";
 import { TokenType } from "./types";
@@ -7,7 +7,7 @@ import { UnauthorizedException, UseGuards } from "@nestjs/common";
 import { GqlAuthGuard } from "./guards/gql-auth.guard";
 import { CurrentUser } from "./decorators/get-user-id.decorator";
 import { ChangePasswordInput } from "./dto/change-password.input";
-import { UsersService } from "src/users/users.service";
+import { UsersService } from "../users/users.service";
 import { User } from "@prisma/client";
 import { TwoFactorInput } from "./dto/2fa.input";
 import { QrCodeType } from "./types/qrCode.type";
