@@ -1,6 +1,6 @@
 import { BadRequestException, Injectable } from "@nestjs/common";
 import { CreateUserInput } from "./dto/create-user.input";
-import { PrismaService } from "src/prisma.service";
+import { PrismaService } from "../prisma.service";
 import { User } from "@prisma/client";
 import { authenticator } from "otplib";
 

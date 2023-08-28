@@ -5,14 +5,14 @@ import {
   UnauthorizedException,
 } from "@nestjs/common";
 import { JwtService } from "@nestjs/jwt";
-import { PrismaService } from "src/prisma.service";
+import { PrismaService } from "../prisma.service";
 import { RegisterUserInput } from "./dto/register.input";
 import { ChangePasswordInput } from "./dto/change-password.input";
 import * as bcrypt from "bcrypt";
 import { User } from "@prisma/client";
 import { TJwtPayload, TokenType } from "./types";
 import { authenticator } from "otplib";
-import { UsersService } from "src/users/users.service";
+import { UsersService } from "../users/users.service";
 import { toDataURL } from "qrcode";
 
 @Injectable()
