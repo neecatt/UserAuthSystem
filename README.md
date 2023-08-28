@@ -37,8 +37,8 @@ Update .env file with your MongoDB connection URI and JWT secret.
 
 6. Access the application:
 
-# The application will be running at http://localhost:3000.
-# The GraphQL Playground can be accessed at http://localhost:3000/graphql.
+* The application will be running at http://localhost:3000.
+* The GraphQL Playground can be accessed at http://localhost:3000/graphql.
 
 ## Usage
 1. Register a new user using the register mutation.
