@@ -20,7 +20,7 @@ This project is a user authentication system built using NestJS, MongoDB, Prisma
    npm install
       ```
    
-4. Set up environment variables:
+3. Set up environment variables:
 
 Rename .env.example to .env.
 Update .env file with your MongoDB connection URI and JWT secret.
@@ -29,12 +29,16 @@ Update .env file with your MongoDB connection URI and JWT secret.
    ```sh
    docker-compose up -d
     ``` 
-   
+
+5. Run the application:
+   ```sh
+   npm run start:dev
+   ```
 
 6. Access the application:
 
-The application will be running at http://localhost:3000.
-The GraphQL Playground can be accessed at http://localhost:3000/graphql.
+# The application will be running at http://localhost:3000.
+# The GraphQL Playground can be accessed at http://localhost:3000/graphql.
 
 ## Usage
 1. Register a new user using the register mutation.
